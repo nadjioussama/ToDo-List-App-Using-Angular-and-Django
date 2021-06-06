@@ -1,0 +1,8 @@
+::ng-deep.mat-dialog-container {
+    box-sizing: border-box;
+
+}
+
+::ng-deep.mat-dialog-container mat-form-field{
+    width: fit-content;
+}

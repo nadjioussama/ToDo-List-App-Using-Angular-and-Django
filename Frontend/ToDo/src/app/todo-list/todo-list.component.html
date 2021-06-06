@@ -1,0 +1,70 @@
+<!-- 
+    <div class="container">
+      <p>
+        <label for="new-task">Add Task</label><input id="new-task" type="text"><button>Add</button>
+      </p>
+      
+      <h3>Todo</h3>
+      <ul id="incomplete-tasks">
+        <li>
+            <input type="checkbox">
+            <label>Setup an apointement with the dentist</label>
+            <input type="text">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button></li>
+
+        <li class="editMode"><input type="checkbox"><label>Buy groceries</label><input type="text" value="Go Shopping"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+        <li class="editMode"><input type="checkbox"><label>Finish the todo app</label><input type="text" value="Finish the todo app"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+      </ul>
+      
+      <h3>Completed</h3>
+      <ul id="completed-tasks">
+        <li><input type="checkbox" checked><label>Visit the new muesum</label><input type="text"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+      </ul>
+    </div> -->
+
+<app-navbar></app-navbar>
+
+<div>
+  <h1>ToDo App</h1>
+
+  <button type="button" class="btn btn-info" (click)="openCreateDialog()">New Todo</button>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>title</th>
+        <th>category</th>
+        <th>options</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let task of todos">
+
+      <td>
+        <label>{{task.title}}</label>
+        <button type="button" class="btn btn-info" (click)="openViewDialog(task)">View</button>
+      </td>
+      <td>
+          <label>{{searchCategory(task.category)}}</label>
+      </td>
+      <td>
+        <button type="button" class="btn btn-info" (click)="openEditDialog(task)">Edit</button>
+        <button type="button" class="btn btn-danger text-danger" (click)="deleteTask(task.id)">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

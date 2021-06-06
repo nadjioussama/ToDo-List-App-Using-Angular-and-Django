@@ -1,0 +1,30 @@
+
+<h1 mat-dialog-title>{{data.taskTitle}}</h1>
+<div mat-dialog-content>
+    
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input placeholder={{data.taskTitle}} matInput [(ngModel)]="data.taskTitle">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input placeholder={{data.taskDescription}} matInput [(ngModel)]="data.taskDescription">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Category</mat-label>
+        <input placeholder={{data.taskCategory}} aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="data.taskCategory">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option['title']">
+                {{option.title}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <br>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data">Confirm</button>
+</div>
